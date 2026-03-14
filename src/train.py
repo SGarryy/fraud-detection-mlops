@@ -18,23 +18,25 @@ import seaborn as sns
 import os
 
 # ── Paths ────────────────────────────────────────────────
-DATA_PATH   = "data/creditcard.csv"
-MODEL_PATH  = "models/fraud_model.pkl"
-SCALER_PATH = "models/scaler.pkl"
-REPORTS_DIR = "reports"
+DATA_PATH    = "data/creditcard.csv"
+MODEL_PATH   = "models/fraud_model.pkl"
+SCALER_AMOUNT_PATH = "models/scaler_amount.pkl"
+SCALER_TIME_PATH   = "models/scaler_time.pkl"
+REPORTS_DIR  = "reports"
 
 
 def load_and_preprocess(path: str):
     """Load CSV, scale Amount+Time, return X and y."""
     df = pd.read_csv(path)
 
-    scaler = StandardScaler()
-    df['Amount'] = scaler.fit_transform(df[['Amount']])
-    df['Time']   = scaler.fit_transform(df[['Time']])
+    scaler_amount = StandardScaler()
+    scaler_time = StandardScaler()
+    df['Amount'] = scaler_amount.fit_transform(df[['Amount']])
+    df['Time']   = scaler_time.fit_transform(df[['Time']])
 
     X = df.drop('Class', axis=1)
     y = df['Class']
-    return X, y, scaler
+    return X, y, scaler_amount, scaler_time
 
 
 def apply_smote(X_train, y_train):
@@ -68,7 +70,7 @@ def train():
     """Full training pipeline with MLflow tracking."""
 
     print("Loading data...")
-    X, y, scaler = load_and_preprocess(DATA_PATH)
+    X, y, scaler_amount, scaler_time = load_and_preprocess(DATA_PATH)
 
     # Train/test split BEFORE SMOTE (important — never SMOTE test data)
     X_train, X_test, y_train, y_test = train_test_split(
@@ -119,14 +121,16 @@ def train():
         plot_confusion_matrix(y_test, y_pred)
         mlflow.log_artifact(f"{REPORTS_DIR}/confusion_matrix.png")
 
-        # Save model + scaler
+        # Save model + scalers
         os.makedirs("models", exist_ok=True)
-        joblib.dump(model,  MODEL_PATH)
-        joblib.dump(scaler, SCALER_PATH)
+        joblib.dump(model,          MODEL_PATH)
+        joblib.dump(scaler_amount,  SCALER_AMOUNT_PATH)
+        joblib.dump(scaler_time,    SCALER_TIME_PATH)
         mlflow.log_artifact(MODEL_PATH)
 
         print(f"\nModel saved to {MODEL_PATH}")
-        print(f"Scaler saved to {SCALER_PATH}")
+        print(f"Scaler (Amount) saved to {SCALER_AMOUNT_PATH}")
+        print(f"Scaler (Time) saved to {SCALER_TIME_PATH}")
 
 
 if __name__ == "__main__":

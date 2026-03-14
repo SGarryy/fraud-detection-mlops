@@ -12,8 +12,12 @@ def compute_psi(expected: np.ndarray, actual: np.ndarray, bins=10) -> float:
     breakpoints = np.linspace(0, 100, bins + 1)
     expected_perc = np.histogram(expected, np.percentile(expected, breakpoints))[0]
     actual_perc   = np.histogram(actual,   np.percentile(expected, breakpoints))[0]
-    expected_perc = np.where(expected_perc == 0, 0.0001, expected_perc) / len(expected)
-    actual_perc   = np.where(actual_perc   == 0, 0.0001, actual_perc)   / len(actual)
+    expected_perc = expected_perc / len(expected)
+    actual_perc   = actual_perc / len(actual)
+    # Add small epsilon to avoid log(0)
+    epsilon = 1e-10
+    expected_perc = np.where(expected_perc == 0, epsilon, expected_perc)
+    actual_perc   = np.where(actual_perc == 0, epsilon, actual_perc)
     psi = np.sum((actual_perc - expected_perc) * np.log(actual_perc / expected_perc))
     return round(float(psi), 4)
 

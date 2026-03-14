@@ -5,9 +5,15 @@ data/creditcard.csv
 __pycache__/
 *.py[cod]
 *.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
 .env
 venv/
 .venv/
+env/
 
 # Models - generated files
 models/*.pkl
@@ -22,6 +28,7 @@ notebooks/.ipynb_checkpoints/
 
 # VS Code
 .vscode/
+*.code-workspace
 
 # Reports - generated files
 reports/*.png
@@ -30,6 +37,10 @@ reports/*.html
 # Docker
 *.log
 
+# macOS
+.DS_Store
+
 # Windows
 Thumbs.db
 desktop.ini
+.idea/
