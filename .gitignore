@@ -1,1 +1,35 @@
+# Data - too large for GitHub
 data/creditcard.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Models - generated files
+models/*.pkl
+models/*.joblib
+
+# MLflow
+mlruns/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Reports - generated files
+reports/*.png
+reports/*.html
+
+# Docker
+*.log
+
+# Windows
+Thumbs.db
+desktop.ini
