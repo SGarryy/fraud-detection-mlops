@@ -1,0 +1,127 @@
+{
+  "total_features": 30,
+  "drifted_features": 0,
+  "drift_detected": false,
+  "results": {
+    "Time": {
+      "psi": 0.0049,
+      "status": "STABLE"
+    },
+    "V1": {
+      "psi": 0.0033,
+      "status": "STABLE"
+    },
+    "V2": {
+      "psi": 0.0021,
+      "status": "STABLE"
+    },
+    "V3": {
+      "psi": 0.0039,
+      "status": "STABLE"
+    },
+    "V4": {
+      "psi": 0.0043,
+      "status": "STABLE"
+    },
+    "V5": {
+      "psi": 0.001,
+      "status": "STABLE"
+    },
+    "V6": {
+      "psi": 0.0028,
+      "status": "STABLE"
+    },
+    "V7": {
+      "psi": 0.0018,
+      "status": "STABLE"
+    },
+    "V8": {
+      "psi": 0.0028,
+      "status": "STABLE"
+    },
+    "V9": {
+      "psi": 0.0039,
+      "status": "STABLE"
+    },
+    "V10": {
+      "psi": 0.002,
+      "status": "STABLE"
+    },
+    "V11": {
+      "psi": 0.0021,
+      "status": "STABLE"
+    },
+    "V12": {
+      "psi": 0.0044,
+      "status": "STABLE"
+    },
+    "V13": {
+      "psi": 0.0027,
+      "status": "STABLE"
+    },
+    "V14": {
+      "psi": 0.0043,
+      "status": "STABLE"
+    },
+    "V15": {
+      "psi": 0.0022,
+      "status": "STABLE"
+    },
+    "V16": {
+      "psi": 0.0008,
+      "status": "STABLE"
+    },
+    "V17": {
+      "psi": 0.0039,
+      "status": "STABLE"
+    },
+    "V18": {
+      "psi": 0.0037,
+      "status": "STABLE"
+    },
+    "V19": {
+      "psi": 0.0042,
+      "status": "STABLE"
+    },
+    "V20": {
+      "psi": 0.0029,
+      "status": "STABLE"
+    },
+    "V21": {
+      "psi": 0.0037,
+      "status": "STABLE"
+    },
+    "V22": {
+      "psi": 0.0032,
+      "status": "STABLE"
+    },
+    "V23": {
+      "psi": 0.0041,
+      "status": "STABLE"
+    },
+    "V24": {
+      "psi": 0.0023,
+      "status": "STABLE"
+    },
+    "V25": {
+      "psi": 0.0036,
+      "status": "STABLE"
+    },
+    "V26": {
+      "psi": 0.0025,
+      "status": "STABLE"
+    },
+    "V27": {
+      "psi": 0.0035,
+      "status": "STABLE"
+    },
+    "V28": {
+      "psi": 0.0012,
+      "status": "STABLE"
+    },
+    "Amount": {
+      "psi": 0.0065,
+      "status": "STABLE"
+    }
+  }
+}
