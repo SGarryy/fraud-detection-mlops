@@ -1,0 +1,6 @@
+venv/
+mlruns/
+data/creditcard.csv
+__pycache__/
+*.pyc
+.git/
